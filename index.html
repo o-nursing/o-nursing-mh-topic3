@@ -1,2 +1,360 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>Loading</title></head><body>Loading</body></html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>O.Nursing — بنك أسئلة الموضوع الثالث: علامات وأعراض المرض النفسي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --burg:#7C2D3E; --burg-d:#5C1F2D; --gold:#C9A227; --gold-l:#F5ECD7;
+  --cream:#FBF7F0; --warm:#F9EFEA; --ink:#2b2b2b; --mut:#8a7a72;
+  --green:#2e7d4f; --green-bg:#e6f4ec; --red:#b3261e; --red-bg:#fdecea;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{font-family:'Tajawal',sans-serif; background:var(--cream); color:var(--ink); min-height:100vh;}
+.wrap{max-width:760px; margin:0 auto; padding:0 18px 40px; width:100%;}
+/* header */
+header{padding:20px 0 8px; text-align:center;}
+.brand{font-family:'Great Vibes',cursive; font-size:34px; color:var(--burg); line-height:1;}
+.brand .dot{color:#FF8A5F;}
+.brand .star{color:var(--gold); font-size:20px; vertical-align:middle;}
+.sub{font-size:13px; color:var(--mut); margin-top:4px;}
+.rule{height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:12px auto 0; max-width:420px;}
+/* cards */
+.card{background:#fff; border:1px solid #ead9c9; border-radius:16px; padding:20px; margin-top:16px; box-shadow:0 2px 10px rgba(124,45,62,.06);}
+h1{font-size:21px; color:var(--burg); line-height:1.5;}
+h1 .en{font-size:15px; color:var(--mut); display:block; font-weight:500;}
+.meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;}
+.pill{background:var(--gold-l); color:var(--burg-d); border:1px solid var(--gold); border-radius:20px; padding:4px 12px; font-size:13px; font-weight:700;}
+.pill.soft{background:var(--warm); border-color:#e5c9c0;}
+/* level filter */
+.levels{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;}
+.lvl{border:1.5px solid var(--gold); background:#fff; color:var(--burg); border-radius:20px; padding:7px 16px; font-size:14px; font-weight:700; cursor:pointer; font-family:inherit;}
+.lvl.on{background:var(--burg); color:#fff; border-color:var(--burg);}
+.btn{display:block; width:100%; background:var(--burg); color:#fff; border:none; border-radius:12px; padding:14px; font-size:17px; font-weight:800; cursor:pointer; font-family:inherit; margin-top:16px;}
+.btn:hover{background:var(--burg-d);}
+.btn.ghost{background:#fff; color:var(--burg); border:1.5px solid var(--burg); margin-top:10px;}
+.btn:disabled{opacity:.5; cursor:default;}
+.small{font-size:13px; color:var(--mut); text-align:center; margin-top:10px; line-height:1.7;}
+/* quiz */
+.prog{height:8px; background:#eee; border-radius:8px; overflow:hidden; margin-top:16px;}
+.prog i{display:block; height:100%; background:linear-gradient(90deg,var(--gold),var(--burg)); width:0%; transition:width .3s;}
+.qtop{display:flex; justify-content:space-between; align-items:center; margin-top:14px; font-size:13px; color:var(--mut); font-weight:700;}
+.badge{font-size:12px; font-weight:800; border-radius:12px; padding:3px 10px;}
+.badge.easy{background:#e6f4ec; color:var(--green);}
+.badge.med{background:#fdf3d7; color:#8a6d00;}
+.badge.hard{background:#fdecea; color:var(--red);}
+.q{font-size:18px; font-weight:700; line-height:1.8; margin-top:12px; direction:ltr; text-align:left;}
+.q .ar-note{font-size:14px; color:var(--mut); font-weight:500; direction:rtl; text-align:right; display:block; margin-top:4px;}
+.opts{margin-top:14px; display:flex; flex-direction:column; gap:10px;}
+.opt{border:1.5px solid #e5d5c8; background:#fff; border-radius:12px; padding:12px 14px; font-size:16px; cursor:pointer; text-align:left; direction:ltr; font-family:inherit; line-height:1.5;}
+.opt:hover{border-color:var(--gold);}
+.opt.correct{border-color:var(--green); background:var(--green-bg);}
+.opt.wrong{border-color:var(--red); background:var(--red-bg);}
+.opt:disabled{cursor:default;}
+.tf{display:flex; gap:10px; margin-top:14px;}
+.tf .opt{flex:1; text-align:center; font-weight:800; font-size:17px;}
+.hintbtn{background:var(--gold-l); color:var(--burg-d); border:1px solid var(--gold); border-radius:10px; padding:8px 14px; font-size:14px; font-weight:700; cursor:pointer; font-family:inherit; margin-top:14px;}
+.hint{display:none; background:#fffbe6; border:1px dashed var(--gold); border-radius:10px; padding:10px 14px; margin-top:10px; font-size:14px; line-height:1.8;}
+.hint.show{display:block;}
+.explain{display:none; border-radius:10px; padding:12px 14px; margin-top:12px; font-size:14.5px; line-height:1.9;}
+.explain.show{display:block;}
+.explain.ok{background:var(--green-bg); border:1px solid var(--green);}
+.explain.no{background:var(--red-bg); border:1px solid var(--red);}
+.explain b{color:var(--burg);}
+.model{display:none; background:var(--warm); border:1px solid #e5c9c0; border-radius:10px; padding:12px 14px; margin-top:12px; font-size:14.5px; line-height:1.9; white-space:pre-line;}
+.model.show{display:block;}
+textarea{width:100%; min-height:90px; border:1.5px solid #e5d5c8; border-radius:12px; padding:12px; font-family:inherit; font-size:15px; margin-top:14px; direction:ltr;}
+/* results */
+.score-ring{width:150px; height:150px; margin:10px auto; position:relative;}
+.score-ring svg{transform:rotate(-90deg);}
+.score-ring .pct{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:34px; font-weight:800; color:var(--burg);}
+.res-line{text-align:center; font-size:16px; line-height:2;}
+.res-line b{color:var(--burg);}
+table.res{width:100%; border-collapse:collapse; margin-top:12px; font-size:14px;}
+table.res td, table.res th{border:1px solid #ead9c9; padding:8px; text-align:center;}
+table.res th{background:var(--burg); color:#fff;}
+.hidden{display:none !important;}
+footer{text-align:center; font-size:12px; color:var(--mut); margin-top:26px; line-height:1.8;}
+/* O.Nursing — QR-only: no copying, no printing */
+body{ -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; }
+textarea{ -webkit-user-select:text; -moz-user-select:text; -ms-user-select:text; user-select:text; }
+#print-note{ display:none; }
+@media print{ body *{ display:none !important; } #print-note{ display:block !important; text-align:center; font-size:16px; font-weight:700; color:#7c2d3e; margin-top:40%; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><span class="star">✦</span> O<span class="dot">.</span>Nursing <span class="star">✦</span></div>
+    <div class="sub">بنك أسئلة — الترم الثاني • تمريض الصحة النفسية</div>
+    <div class="rule"></div>
+  </header>
+
+  <!-- HOME -->
+  <div id="home" class="card">
+    <h1>الموضوع الثالث: علامات وأعراض المرض النفسي<span class="en">Topic 3 — Signs &amp; Symptoms of Psychiatric Illness</span></h1>
+    <div class="meta">
+      <span class="pill">40 سؤال</span>
+      <span class="pill soft">اختيار من متعدد + صح وخطأ + مقالي</span>
+      <span class="pill soft">متدرجة: سهل ← متوسط ← صعب</span>
+    </div>
+    <p style="margin-top:12px; font-size:14.5px; line-height:1.9;">أسئلة إضافية شاملة كل أفكار الموضوع: تكوين العقل، اضطرابات شكل التفكير ومحتواه، أنواع الضلالات والهلوسات والرهاب، الذاكرة والبصيرة والحكم، الوعي، الانفعال والمزاج، والسلوك الحركي — مع <b>تلميح</b> لكل سؤال وشرح بعد الإجابة.</p>
+    <div class="levels" id="levels">
+      <button class="lvl on" data-lvl="all">الكل (40)</button>
+      <button class="lvl" data-lvl="easy">سهل (15)</button>
+      <button class="lvl" data-lvl="med">متوسط (15)</button>
+      <button class="lvl" data-lvl="hard">صعب (10)</button>
+    </div>
+    <button class="btn" id="btn-start">ابدأ الأسئلة ←</button>
+    <button class="btn ghost hidden" id="btn-resume">كمّل من حيث توقفت</button>
+    <div class="small" id="home-stats"></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz" class="card hidden">
+    <div class="prog"><i id="prog-fill"></i></div>
+    <div class="qtop"><span id="q-count"></span><span id="q-badge"></span><span id="q-score"></span></div>
+    <div class="q" id="q-stem"></div>
+    <div id="q-body"></div>
+    <button class="hintbtn" id="btn-hint">💡 تلميح</button>
+    <div class="hint" id="q-hint"></div>
+    <div class="explain" id="q-explain"></div>
+    <div class="model" id="q-model"></div>
+    <button class="btn hidden" id="btn-next">السؤال التالي ←</button>
+    <button class="btn hidden" id="btn-finish">عرض النتيجة</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results" class="card hidden" style="text-align:center;">
+    <h1>النتيجة</h1>
+    <div class="score-ring">
+      <svg width="150" height="150" viewBox="0 0 150 150">
+        <circle cx="75" cy="75" r="65" fill="none" stroke="#eee" stroke-width="10"/>
+        <circle id="ring-fg" cx="75" cy="75" r="65" fill="none" stroke="#7C2D3E" stroke-width="10" stroke-linecap="round" stroke-dasharray="408" stroke-dashoffset="408"/>
+      </svg>
+      <div class="pct" id="res-pct">0%</div>
+    </div>
+    <div class="res-line" id="res-line"></div>
+    <table class="res" id="res-table"></table>
+    <button class="btn" id="btn-retry">إعادة الأسئلة</button>
+    <button class="btn ghost" id="btn-home">رجوع للموضوع الثالث</button>
+  </div>
+
+  <footer>O.Nursing • Dr: Abdullah Shawky<br>الأسئلة من محتوى المحاضرة وبنك الأسئلة (Unit 2)<br><b style="color:#7c2d3e;">الأسئلة خاصة بـ O.Nursing — ممنوع النسخ والنقل</b></footer>
+  <div id="print-note">الأسئلة خاصة بـ O.Nursing — ممنوع النسخ والنقل</div>
+</div>
+
+<script>
+const QUESTIONS = [
+  {"id": 1, "level": "easy", "type": "mcq", "q": "Composition of mind consists of:", "options": ["Intellect, emotion, and behavior.", "Thought, memory, and perception only.", "Affect, mood, and judgment only.", "Consciousness, insight, and intelligence only."], "correct": 0, "hint": "Three parts: how he thinks, how he feels, how he acts.", "explain": "Composition of mind is <b>Intellect, Emotion, and Behavior</b>."},
+  {"id": 2, "level": "easy", "type": "mcq", "q": "Which of the following is part of Intellect?", "options": ["The inner feeling of experiences.", "The conduct of the individual.", "Thought process, memory, orientation, and perception.", "The observed expression of emotion."], "correct": 2, "hint": "Intellect = the thinking side: thought, memory, orientation...", "explain": "Intellect includes <b>thought process, memory, orientation, perception, attention and concentration, insight, judgment, consciousness, and intelligence</b>."},
+  {"id": 3, "level": "easy", "type": "mcq", "q": "Emotion is defined as:", "options": ["The conduct of the individual.", "The inner feeling of experiences of the individual.", "The objective evaluation of the world outside the self.", "A state of awareness."], "correct": 1, "hint": "Emotion = what the person feels inside.", "explain": "Emotion is <b>the inner feeling of experiences of the individual</b>."},
+  {"id": 4, "level": "easy", "type": "mcq", "q": "Psychosis is best described as:", "options": ["A false belief that cannot be corrected by reasoning.", "Inability to distinguish reality from fantasy, with impaired reality testing.", "A false sensory perception with no real stimulus.", "A repetitive fixed pattern of physical action."], "correct": 1, "hint": "Psychosis = reality and fantasy get mixed up.", "explain": "Psychosis is the <b>inability to distinguish reality from fantasy</b>; reality testing is impaired, with the certainty of a new reality."},
+  {"id": 5, "level": "easy", "type": "mcq", "q": "A delusion is:", "options": ["A false sensory perception with no real stimulus.", "A false belief, based on incorrect inference about external reality, that cannot be corrected by reasoning.", "A misperception of a real external stimulus.", "A meaningless repetition of specific words."], "correct": 1, "hint": "Delusion = a belief — wrong, fixed, and not corrected by reasoning.", "explain": "A delusion is a <b>false belief, based on incorrect inference about external reality, not consistent with the patient's intelligence and cultural background, that cannot be corrected by reasoning</b>."},
+  {"id": 6, "level": "easy", "type": "mcq", "q": "A hallucination is:", "options": ["A false belief that cannot be corrected by reasoning.", "A misperception of a real external sensory stimulus.", "A false sensory perception not associated with real external stimuli.", "A persistent irrational dread of a specific stimulus."], "correct": 2, "hint": "Hallucination = sensing something that is not there at all.", "explain": "A hallucination is a <b>false sensory perception not associated with real external stimuli</b>; there may or may not be a delusional interpretation of it."},
+  {"id": 7, "level": "easy", "type": "mcq", "q": "Misperception or misinterpretation of a real external sensory stimulus is the scientific term for:", "options": ["Hallucination.", "Delusion.", "Illusion.", "Obsession."], "correct": 2, "hint": "The stimulus is real — only the interpretation is wrong.", "explain": "<b>Illusion</b> is the misperception or misinterpretation of <b>real</b> external sensory stimuli. A hallucination has no real stimulus at all."},
+  {"id": 8, "level": "easy", "type": "mcq", "q": "A phobia is:", "options": ["A false belief that cannot be corrected by reasoning.", "A persistent, irrational, exaggerated and pathological dread of a specific stimulus or situation.", "A repetitive behavior performed to prevent something from occurring.", "A false perception of sound, usually voices."], "correct": 1, "hint": "Phobia = dread — fear of something specific.", "explain": "A phobia is a <b>persistent, irrational, exaggerated and invariably pathological dread of some specific type of stimulus or situation</b>, with a compelling desire to avoid the feared stimulus."},
+  {"id": 9, "level": "easy", "type": "mcq", "q": "Agoraphobia is the dread of:", "options": ["High places.", "Closed places.", "Open places.", "Spiders or snakes."], "correct": 2, "hint": "Agora = an open public place.", "explain": "<b>Agoraphobia</b> is the dread of <b>open places</b>. Acrophobia is high places; claustrophobia is closed places; spiders or snakes are a specific phobia."},
+  {"id": 10, "level": "easy", "type": "mcq", "q": "Amnesia is:", "options": ["A false perception of smell.", "Partial or total inability to recall past experiences.", "An illusion of visual recognition of a new situation.", "The filling of memory gaps with imagined experiences."], "correct": 1, "hint": "Amnesia = memory loss.", "explain": "<b>Amnesia</b> is the <b>partial or total inability to recall past experiences</b>; it may be organic or emotional in origin."},
+  {"id": 11, "level": "easy", "type": "mcq", "q": "Consciousness is:", "options": ["The inner feeling of experiences of the individual.", "A state of awareness.", "The ability to assess a situation correctly.", "The observed expression of emotion."], "correct": 1, "hint": "Consciousness = being aware.", "explain": "<b>Consciousness</b> is <b>a state of awareness</b>. Its disturbances are disorientation, stupor, and delirium."},
+  {"id": 12, "level": "easy", "type": "mcq", "q": "Insight is the ability of the patient to:", "options": ["Assess a situation correctly and act appropriately.", "Understand the true cause and meaning of a situation, such as symptoms.", "Express emotion in harmony with thought and speech.", "Recall past experiences completely."], "correct": 1, "hint": "Insight = understanding WHY — the true cause of what is happening.", "explain": "<b>Insight</b> is the ability of the patient to <b>understand the true cause and meaning of a situation</b> (such as symptoms)."},
+  {"id": 13, "level": "easy", "type": "mcq", "q": "A new word created by the patient, often by combining syllables of other words, is called:", "options": ["Word salad.", "Neologism.", "Echolalia.", "Clang association."], "correct": 1, "hint": "Neo = new, logism = word.", "explain": "<b>Neologism</b> is a <b>new word created by the patient</b>, often by combining syllables of other words for idiosyncratic psychological reasons. The word has meaning for the patient only."},
+  {"id": 14, "level": "easy", "type": "mcq", "q": "An incoherent mixture of words and phrases is called:", "options": ["Neologism.", "Word salad.", "Circumstantiality.", "Flight of ideas."], "correct": 1, "hint": "A salad is a mixture of many things with no order.", "explain": "<b>Word salad</b> is an <b>incoherent mixture of words and phrases</b>."},
+  {"id": 15, "level": "easy", "type": "tf", "q": "A hallucination is a false sensory perception not associated with real external stimuli.", "correct": true, "hint": "No real stimulus at all — that is the definition.", "explain": "TRUE — a hallucination is a <b>false sensory perception not associated with real external stimuli</b>."},
+  {"id": 16, "level": "med", "type": "mcq", "q": "Echolalia is:", "options": ["The pathological imitation of another person's movements.", "The psychopathological repeating of words or phrases of one person by another.", "The meaningless repetition of specific words by the same person.", "A new word created by the patient."], "correct": 1, "hint": "Echo = repeating what someone else just said.", "explain": "<b>Echolalia</b> is the psychopathological <b>repeating of words or phrases of one person by another</b>; it tends to be repetitive and persistent."},
+  {"id": 17, "level": "med", "type": "mcq", "q": "The pathological imitation of movements of one person by another is called:", "options": ["Echolalia.", "Echopraxia.", "Stereotypy.", "Negativism."], "correct": 1, "hint": "Praxis = movement. Echo + praxis = copying movements.", "explain": "<b>Echopraxia</b> is the <b>pathological imitation of movements of one person by another</b>. Echolalia copies words; echopraxia copies movements."},
+  {"id": 18, "level": "med", "type": "mcq", "q": "Negativism is:", "options": ["A repetitive fixed pattern of physical action or speech.", "Motiveless resistance to all attempts to be moved or to all instructions.", "The ability to be molded into a position that is then maintained.", "Excessive motor and cognitive overactivity."], "correct": 1, "hint": "Negative = refuses everything, for no reason.", "explain": "<b>Negativism</b> is <b>motiveless resistance to all attempts to be moved or to all instructions</b>."},
+  {"id": 19, "level": "med", "type": "mcq", "q": "An obsession is:", "options": ["A repetitive behavior performed to prevent something from occurring.", "The pathological persistence of an irresistible thought or feeling that cannot be eliminated from consciousness by logical effort.", "A false belief that cannot be corrected by reasoning.", "A persistent irrational dread of a specific situation."], "correct": 1, "hint": "Obsession = a thought stuck in the mind that logic cannot remove.", "explain": "An <b>obsession</b> is the pathological persistence of an <b>irresistible thought or feeling that cannot be eliminated from consciousness by logical effort</b>, associated with anxiety. It is also termed rumination."},
+  {"id": 20, "level": "med", "type": "mcq", "q": "A compulsion is:", "options": ["An irresistible thought that cannot be eliminated by logic.", "A pathological need to act on an impulse that, if resisted, produces anxiety.", "A false belief about one's own body.", "A repetitive fixed pattern of physical action."], "correct": 1, "hint": "Compulsion = the ACT — the repetitive behavior that follows the obsession.", "explain": "A <b>compulsion</b> is the pathological need to <b>act on an impulse that, if resisted, produces anxiety</b>; repetitive behavior in response to an obsession or performed according to certain rules."},
+  {"id": 21, "level": "med", "type": "mcq", "q": "An auditory hallucination is a false perception of:", "options": ["Smell.", "Taste.", "Sound, usually voices.", "Touch."], "correct": 2, "hint": "Audio = hearing — the most common hallucination is hearing voices.", "explain": "<b>Auditory hallucination</b> is the false perception of <b>sound, usually voices</b>. The other types are visual (flashes or light), olfactory (smell), gustatory (taste), and tactile (touch)."},
+  {"id": 22, "level": "med", "type": "mcq", "q": "Which list correctly gives the five types of hallucination?", "options": ["Auditory, visual, olfactory, gustatory, tactile.", "Auditory, visual, olfactory, somatic, paranoid.", "Nihilistic, poverty, somatic, persecutory, grandeur.", "Specific, social, acrophobia, agoraphobia, claustrophobia."], "correct": 0, "hint": "Five senses: hearing, sight, smell, taste, touch.", "explain": "The five types of hallucination match the five senses: <b>auditory, visual, olfactory, gustatory, and tactile</b> hallucination."},
+  {"id": 23, "level": "med", "type": "mcq", "q": "A patient complains of an unpleasant taste in the mouth that no one else can taste. This is a:", "options": ["Olfactory hallucination.", "Gustatory hallucination.", "Tactile hallucination.", "Visual hallucination."], "correct": 1, "hint": "Taste, not smell — gustatory is the trap.", "explain": "<b>Gustatory hallucination</b> is the false perception of <b>taste</b>, such as an unpleasant taste. Smell is olfactory — do not mix them up: the bank asks this as a True/False trap."},
+  {"id": 24, "level": "med", "type": "mcq", "q": "A nihilistic delusion is the false feeling that:", "options": ["One is deprived of all material possessions.", "One's brain is rotting or melting.", "The self, others, or the world is nonexistent or ending.", "People on TV are talking about the patient."], "correct": 2, "hint": "Nihil = nothing — nothing exists.", "explain": "<b>Nihilistic delusion</b> is the false feeling that <b>the self, others, or the world is nonexistent or ending</b>."},
+  {"id": 25, "level": "med", "type": "mcq", "q": "A delusion of poverty is the false belief that one:", "options": ["Is deprived or will be deprived of all material possessions.", "Is more important and powerful than others.", "Is being controlled by external forces.", "Has a serious disease with no organic basis."], "correct": 0, "hint": "Poverty = having nothing.", "explain": "<b>Delusion of poverty</b> is the false belief that one <b>is deprived or will be deprived of all material possessions</b>."},
+  {"id": 26, "level": "med", "type": "mcq", "q": "A delusion of grandeur is:", "options": ["A false belief that one is being harassed or persecuted.", "An exaggerated conception of one's importance, power, or identity.", "A false belief that one's thoughts are being broadcast.", "A false belief involving the functioning of one's body."], "correct": 1, "hint": "Grandeur = greatness — the patient thinks he is great.", "explain": "<b>Delusion of grandeur</b> is the <b>exaggerated conception of one's importance, power, or identity</b>."},
+  {"id": 27, "level": "med", "type": "mcq", "q": "Rapid, continuous verbalizations producing constant shifting from one idea to another is the scientific term for:", "options": ["Clang association.", "Flight of ideas.", "Word salad.", "Blocking."], "correct": 1, "hint": "Ideas fly — the patient jumps from one to the next.", "explain": "<b>Flight of ideas</b> is rapid, continuous verbalizations or plays on words producing <b>constant shifting from one idea to another</b>; the ideas tend to be connected, and in the less severe form a listener may be able to follow them."},
+  {"id": 28, "level": "med", "type": "mcq", "q": "A patient gives indirect speech with too many details and takes a long time to reach the point, but eventually gets there. This is:", "options": ["Incoherence.", "Circumstantiality.", "Flight of ideas.", "Word salad."], "correct": 1, "hint": "He reaches the point in the end — he just takes the long way round.", "explain": "<b>Circumstantiality</b> is indirect speech that is <b>delayed in reaching the point but eventually gets from the original point to the desired goal</b>; it is characterized by an over-inclusion of details."},
+  {"id": 29, "level": "med", "type": "mcq", "q": "A client who believes everyone is out to persecute him is experiencing a:", "options": ["Hallucination.", "Delusion.", "Idea of reference.", "Loose association."], "correct": 1, "hint": "A false belief about being persecuted — a belief, not a perception.", "explain": "Believing everyone is out to persecute him is a <b>delusion</b> — specifically a <b>delusion of persecution</b>: the false belief that one is being harassed, cheated, or persecuted."},
+  {"id": 30, "level": "med", "type": "mcq", "q": "The ability to assess a situation correctly and act appropriately within that situation is:", "options": ["Insight.", "Judgment.", "Affect.", "Mood."], "correct": 1, "hint": "Not understanding the cause (insight) — assessing and ACTING correctly.", "explain": "<b>Judgment</b> is the ability to <b>assess a situation correctly and act appropriately</b> within that situation. Insight is understanding the true cause and meaning — the bank tests this difference as a True/False trap."},
+  {"id": 31, "level": "hard", "type": "mcq", "q": "A patient links words because they sound alike — rhyming and punning with no logical connection. This is:", "options": ["Word salad.", "Clang association.", "Flight of ideas.", "Perseveration."], "correct": 1, "hint": "Clang = the sound of the words, not their meaning.", "explain": "<b>Clang association</b> is the association of <b>words similar in sound but not in meaning</b>; the words have no logical connection and may include rhyming and punning. Word salad is an incoherent mixture — the bank tests this difference."},
+  {"id": 32, "level": "hard", "type": "mcq", "q": "Blocking is:", "options": ["Rapid shifting from one idea to another.", "An abrupt interruption in the train of thinking before a thought is finished, with no recall of what was being said.", "The meaningless repetition of specific words.", "A persisting response to a prior stimulus after a new one is presented."], "correct": 1, "hint": "The thought is blocked — it stops suddenly and the patient forgets what he was saying.", "explain": "<b>Blocking</b> is the <b>abrupt interruption in the train of thinking before a thought or idea is finished</b>; after a brief pause, the person indicates no recall of what was being said or was going to be said."},
+  {"id": 33, "level": "hard", "type": "mcq", "q": "Perseveration is:", "options": ["The meaningless repetition of specific words or phrases.", "A persisting response to a prior stimulus after a new stimulus has been presented.", "The psychopathological repeating of another person's words.", "An incoherent mixture of words and phrases."], "correct": 1, "hint": "Persevere = keep going with the OLD answer after the question changed.", "explain": "<b>Perseveration</b> is the <b>persisting response to a prior stimulus after a new stimulus has been presented</b>, often associated with cognitive disorders."},
+  {"id": 34, "level": "hard", "type": "mcq", "q": "The meaningless repetition of specific words or phrases is called:", "options": ["Echolalia.", "Verbigeration.", "Perseveration.", "Clang association."], "correct": 1, "hint": "Verbi- = words; the patient repeats his OWN words meaninglessly.", "explain": "<b>Verbigeration</b> is the <b>meaningless repetition of specific words or phrases</b>. Echolalia repeats another person's words; verbigeration repeats the patient's own words."},
+  {"id": 35, "level": "hard", "type": "mcq", "q": "Incoherence is best described as:", "options": ["Indirect speech delayed in reaching the point.", "Thought that is generally not understandable, with no logical or grammatical connection, resulting in disorganization.", "A new word created by the patient.", "Rapid, continuous verbalizations shifting from one idea to another."], "correct": 1, "hint": "Incoherent = the thoughts do not hang together at all.", "explain": "<b>Incoherence</b> is thought that <b>generally is not understandable</b>; running together of thoughts or words with <b>no logical or grammatical connection</b>, resulting in disorganization."},
+  {"id": 36, "level": "hard", "type": "mcq", "q": "A patient believes that people on TV or radio are talking to or about him. This is a:", "options": ["Delusion of persecution.", "Delusion of grandeur.", "Delusion of reference.", "Delusion of control."], "correct": 2, "hint": "The TV refers to HIM — events and people have a special significance for him.", "explain": "<b>Delusion of reference</b> is the false belief that <b>the behavior of others refers to oneself</b> — that events, objects, or other people have a particular and unusual significance; e.g. the belief that people on TV or radio are talking to or about the patient."},
+  {"id": 37, "level": "hard", "type": "mcq", "q": "The delusion that thoughts are being implanted in one's mind by other people or forces is called:", "options": ["Thought withdrawal.", "Thought insertion.", "Thought broadcasting.", "Delusion of reference."], "correct": 1, "hint": "Insertion = thoughts put INTO the mind.", "explain": "<b>Thought insertion</b> is the delusion that <b>thoughts are being implanted in one's mind</b> by other people or forces. Withdrawal is thoughts being removed; broadcasting is thoughts being heard by others."},
+  {"id": 38, "level": "hard", "type": "mcq", "q": "Which statement about catatonia is CORRECT?", "options": ["Catatonia is a motor anomaly associated with organic disorders.", "Catatonia is a motor anomaly in nonorganic disorders.", "Catatonia is a disturbance of consciousness.", "Catatonia is a repetitive fixed pattern of speech."], "correct": 1, "hint": "The book says nonorganic — the bank asks it the other way round as a trap.", "explain": "<b>Catatonia</b> is a motor anomaly in <b>nonorganic</b> disorders — as opposed to disturbances of consciousness and motor activity secondary to organic pathology. The bank's True/False item says 'organic', which is FALSE. Other motor disturbances: echopraxia, waxy flexibility, negativism, stereotypy, psychomotor agitation, compulsion, aggression."},
+  {"id": 39, "level": "hard", "type": "mcq", "q": "Which list correctly gives the five types of phobia?", "options": ["Specific, social, acrophobia, agoraphobia, claustrophobia.", "Auditory, visual, olfactory, gustatory, tactile.", "Nihilistic, poverty, somatic, paranoid, grandeur.", "Dysphonic, irritable, labile, elevated, euphoria."], "correct": 0, "hint": "Five fears: a thing, people, heights, open places, closed places.", "explain": "The five types of phobia are: <b>specific</b> (e.g. spiders or snakes), <b>social</b> (e.g. fear of public speaking), <b>acrophobia</b> (high places), <b>agoraphobia</b> (open places), and <b>claustrophobia</b> (closed places)."},
+  {"id": 40, "level": "hard", "type": "written", "q": "List the types of delusion.", "model": "Nihilistic delusion; delusion of poverty; somatic delusion; paranoid delusions — persecutory, grandeur, reference, and control (thought withdrawal, thought insertion, thought broadcasting).", "hint": "Four main types — the last one has four subtypes of its own.", "explain": "The types of delusion are: <b>nihilistic, poverty, somatic, and paranoid</b> (persecutory, grandeur, reference, control — including thought withdrawal, thought insertion, and thought broadcasting)."}
+];
+</script>
+
+<script>
+const LVL = {easy:"سهل", med:"متوسط", hard:"صعب"};
+const LVLCLS = {easy:"easy", med:"med", hard:"hard"};
+const KEY = "onursing_topic3_progress_v1";
+let selectedLvl = "all";
+let queue = [], idx = 0, score = 0, answered = 0, results = [];
+let levelStats = {easy:{t:0,c:0}, med:{t:0,c:0}, hard:{t:0,c:0}};
+let locked = false;
+
+function $(id){ return document.getElementById(id); }
+function loadProg(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
+function saveProg(p){ try{ localStorage.setItem(KEY, JSON.stringify(p)); }catch(e){} }
+
+function refreshHome(){
+  const p = loadProg();
+  const done = p.done || {}, correct = p.correct || {};
+  const n = Object.keys(done).length;
+  const c = Object.keys(correct).length;
+  $("home-stats").textContent = n ? ("تقدّمك: أجبت على " + n + " سؤال من 40 — إجابات صحيحة: " + c + (p.best!=null ? (" • أفضل نتيجة: " + p.best + "%") : "")) : "ابدأ من السهل وتدرّج — كل سؤال معه تلميح وشرح.";
+  $("btn-resume").classList.toggle("hidden", !n || n>=40);
+}
+document.querySelectorAll("#levels .lvl").forEach(b=>{
+  b.addEventListener("click", ()=>{
+    document.querySelectorAll("#levels .lvl").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); selectedLvl = b.dataset.lvl;
+  });
+});
+$("btn-start").addEventListener("click", ()=>startQuiz(false));
+$("btn-resume").addEventListener("click", ()=>startQuiz(true));
+
+function buildQueue(resume){
+  let pool = QUESTIONS.filter(q => selectedLvl==="all" || q.level===selectedLvl);
+  if(resume){
+    const p = loadProg(); const done = p.done || {};
+    pool = pool.filter(q => !done[q.id]);
+    if(!pool.length){ pool = QUESTIONS.filter(q => selectedLvl==="all" || q.level===selectedLvl); }
+  }
+  return pool.slice();
+}
+function startQuiz(resume){
+  queue = buildQueue(resume); idx = 0; score = 0; answered = 0; results = [];
+  levelStats = {easy:{t:0,c:0}, med:{t:0,c:0}, hard:{t:0,c:0}};
+  queue.forEach(q=>{ if(q.type!=="written") levelStats[q.level].t++; });
+  $("home").classList.add("hidden"); $("results").classList.add("hidden"); $("quiz").classList.remove("hidden");
+  renderQ();
+}
+function cur(){ return queue[idx]; }
+function renderQ(){
+  const q = cur(); locked = false;
+  $("prog-fill").style.width = (idx/queue.length*100) + "%";
+  $("q-count").textContent = "سؤال " + (idx+1) + " من " + queue.length;
+  $("q-badge").innerHTML = '<span class="badge '+LVLCLS[q.level]+'">'+LVL[q.level]+'</span>';
+  $("q-score").textContent = "صح: " + score + " / " + answered;
+  $("q-stem").innerHTML = q.q + (q.ar ? '<span class="ar-note">'+q.ar+'</span>' : "");
+  $("q-hint").classList.remove("show"); $("q-hint").textContent = q.hint || "";
+  $("btn-hint").style.display = q.hint ? "" : "none";
+  const ex = $("q-explain"); ex.classList.remove("show","ok","no"); ex.innerHTML = "";
+  const mo = $("q-model"); mo.classList.remove("show"); mo.textContent = "";
+  $("btn-next").classList.add("hidden"); $("btn-finish").classList.add("hidden");
+  const body = $("q-body"); body.innerHTML = "";
+  if(q.type === "mcq"){
+    const box = document.createElement("div"); box.className = "opts";
+    q.options.forEach((op,i)=>{
+      const b = document.createElement("button"); b.className = "opt"; b.textContent = op;
+      b.addEventListener("click", ()=>answerMcq(i, b)); box.appendChild(b);
+    });
+    body.appendChild(box);
+  } else if(q.type === "tf"){
+    const box = document.createElement("div"); box.className = "tf";
+    [["True", true], ["False", false]].forEach(([label, val])=>{
+      const b = document.createElement("button"); b.className = "opt"; b.textContent = label;
+      b.addEventListener("click", ()=>answerTf(val, b)); box.appendChild(b);
+    });
+    body.appendChild(box);
+  } else if(q.type === "written"){
+    const ta = document.createElement("textarea"); ta.placeholder = "اكتب إجابتك هنا…";
+    body.appendChild(ta);
+    const b = document.createElement("button"); b.className = "btn"; b.textContent = "أظهر الإجابة النموذجية";
+    b.addEventListener("click", ()=>{
+      if(locked) return; locked = true;
+      mo.textContent = q.model; mo.classList.add("show");
+      ex.innerHTML = "<b>الشرح:</b> " + q.explain; ex.classList.add("show","ok");
+      b.disabled = true; showNav();
+    });
+    body.appendChild(b);
+  }
+}
+$("btn-hint").addEventListener("click", ()=>{ $("q-hint").classList.toggle("show"); });
+function markProgress(id, ok){
+  const p = loadProg(); p.done = p.done || {}; p.correct = p.correct || {};
+  p.done[id] = true; if(ok) p.correct[id] = true; saveProg(p);
+}
+function finishAnswer(ok){
+  answered++; if(ok) score++;
+  markProgress(cur().id, ok);
+  results.push({id:cur().id, ok:ok});
+  $("q-score").textContent = "صح: " + score + " / " + answered;
+  showNav();
+}
+function showNav(){
+  if(idx < queue.length-1){ $("btn-next").classList.remove("hidden"); }
+  else { $("btn-finish").classList.remove("hidden"); }
+}
+function answerMcq(i, btn){
+  if(locked) return; locked = true;
+  const q = cur(); const ok = (i === q.correct);
+  document.querySelectorAll("#q-body .opt").forEach((el, j)=>{
+    el.disabled = true;
+    if(j === q.correct) el.classList.add("correct");
+    if(j === i && !ok) el.classList.add("wrong");
+  });
+  const ex = $("q-explain");
+  ex.innerHTML = (ok ? "<b>✓ إجابة صحيحة.</b> " : "<b>✗ إجابة خاطئة.</b> الصح: <b>" + q.options[q.correct] + "</b><br>") + q.explain;
+  ex.classList.add("show", ok ? "ok" : "no");
+  finishAnswer(ok);
+}
+function answerTf(val, btn){
+  if(locked) return; locked = true;
+  const q = cur(); const ok = (val === q.correct);
+  document.querySelectorAll("#q-body .opt").forEach(el=>{
+    el.disabled = true;
+    const v = el.textContent === "True";
+    if(v === q.correct) el.classList.add("correct");
+    if(el === btn && !ok) el.classList.add("wrong");
+  });
+  const ex = $("q-explain");
+  ex.innerHTML = (ok ? "<b>✓ إجابة صحيحة.</b> " : "<b>✗ إجابة خاطئة.</b> الصح: <b>" + (q.correct ? "True" : "False") + "</b><br>") + q.explain;
+  ex.classList.add("show", ok ? "ok" : "no");
+  finishAnswer(ok);
+}
+$("btn-next").addEventListener("click", ()=>{ idx++; renderQ(); });
+$("btn-finish").addEventListener("click", showResults);
+function showResults(){
+  $("quiz").classList.add("hidden"); $("results").classList.remove("hidden");
+  const total = results.length || 1;
+  const pct = Math.round(score/total*100);
+  $("res-pct").textContent = pct + "%";
+  const ring = $("ring-fg");
+  ring.style.strokeDashoffset = 408 - (408*pct/100);
+  const p = loadProg(); if(p.best==null || pct > p.best){ p.best = pct; saveProg(p); }
+  let msg = pct>=90 ? "ممتاز! الموضوع ده بقى في جيبك." : pct>=70 ? "كويس جداً — راجع الغلطات وهتبقى ممتاز." : pct>=50 ? "بداية كويسة — راجع الشرح والغلطات وحاول تاني." : "محتاج مراجعة — ارجع للشرح في الملف وحاول تاني.";
+  $("res-line").innerHTML = "أجبت صح على <b>" + score + "</b> من <b>" + total + "</b> سؤال<br>" + msg;
+  let rows = "<tr><th>المستوى</th><th>صح</th><th>من</th></tr>";
+  const agg = {easy:{t:0,c:0}, med:{t:0,c:0}, hard:{t:0,c:0}};
+  results.forEach(r=>{ const q = QUESTIONS.find(x=>x.id===r.id); if(!q) return; agg[q.level].t++; if(r.ok) agg[q.level].c++; });
+  ["easy","med","hard"].forEach(l=>{ if(agg[l].t) rows += "<tr><td>"+LVL[l]+"</td><td>"+agg[l].c+"</td><td>"+agg[l].t+"</td></tr>"; });
+  $("res-table").innerHTML = rows;
+}
+$("btn-retry").addEventListener("click", ()=>startQuiz(false));
+$("btn-home").addEventListener("click", ()=>{
+  $("results").classList.add("hidden"); $("home").classList.remove("hidden"); refreshHome();
+
+/* O.Nursing — QR-only protection: block copying, right-click, printing */
+document.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+document.addEventListener("copy", function(e){ e.preventDefault(); });
+document.addEventListener("cut", function(e){ e.preventDefault(); });
+document.addEventListener("dragstart", function(e){ e.preventDefault(); });
+document.addEventListener("keydown", function(e){
+  if((e.ctrlKey || e.metaKey) && ["c","x","u","s","p","a"].indexOf(e.key.toLowerCase()) !== -1){ e.preventDefault(); }
+});
+});
+refreshHome();
+</script>
+</body>
+</html>
